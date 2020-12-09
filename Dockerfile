@@ -17,7 +17,7 @@ ENV LANG C.UTF-8
 
 # extra dependencies (over what buildpack-deps already includes)
 RUN apt-get update
-RUN apt-get install firefox
+RUN apt-get install firefox-esr
 RUN apt-get install -y --no-install-recommends \
 		libbluetooth-dev \
 		tk-dev \
