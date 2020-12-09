@@ -6,6 +6,9 @@
 
 FROM buildpack-deps:buster
 
+ARG firefox_ver=83.0
+ARG geckodriver_ver=0.28.0
+
 #FROM debian:buster
 
 # ensure local python is preferred over distribution python
