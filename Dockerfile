@@ -23,15 +23,15 @@ RUN apt-get install -y --no-install-recommends \
 		libbluetooth-dev \
 		tk-dev \
 		uuid-dev \
+		curl
 	
  # Install dependencies for Firefox
- && apt-get install -y --no-install-recommends --no-install-suggests \
+RUN apt-get install -y --no-install-recommends --no-install-suggests \
             `apt-cache depends firefox-esr | awk '/Depends:/{print$2}'` \
             # additional 'firefox-esl' dependencies which is not in 'depends' list
-            libxt6 \
-    \
+            libxt6 
  # Download and install Firefox
- && curl -fL -o /tmp/firefox.tar.bz2 \
+RUN curl -fL -o /tmp/firefox.tar.bz2 \
          https://ftp.mozilla.org/pub/firefox/releases/${firefox_ver}/linux-x86_64/en-GB/firefox-${firefox_ver}.tar.bz2 \
  && tar -xjf /tmp/firefox.tar.bz2 -C /tmp/ \
  && mv /tmp/firefox /opt/firefox \
