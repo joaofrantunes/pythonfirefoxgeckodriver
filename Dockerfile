@@ -17,13 +17,23 @@ ENV LANG C.UTF-8
 
 # extra dependencies (over what buildpack-deps already includes)
 RUN apt-get update
-# RUN apt-get upgrade -y
+RUN apt-get upgrade -y
 # RUN apt-get install firefox-esr wget -y
 RUN apt-get install -y --no-install-recommends \
 		libbluetooth-dev \
 		tk-dev \
 		uuid-dev \
-		curl
+		\
+ && apt-get install -y --no-install-recommends --no-install-suggests \
+            ca-certificates \
+ && update-ca-certificates \
+    \
+ # Install tools for building
+ && toolDeps=" \
+        curl bzip2 \
+    " \
+ && apt-get install -y --no-install-recommends --no-install-suggests \
+            $toolDeps \
 	
  # Install dependencies for Firefox
 RUN apt-get install -y --no-install-recommends --no-install-suggests \
