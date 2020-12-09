@@ -6,7 +6,7 @@
 
 # FROM buildpack-deps:buster
 
-FROM debian:buster-slim
+FROM debian:buster
 
 # ensure local python is preferred over distribution python
 ENV PATH /usr/local/bin:$PATH
