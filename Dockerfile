@@ -4,9 +4,9 @@
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
 
-# FROM buildpack-deps:buster
+FROM buildpack-deps:buster
 
-FROM debian:buster
+#FROM debian:buster
 
 # ensure local python is preferred over distribution python
 ENV PATH /usr/local/bin:$PATH
