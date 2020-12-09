@@ -1,14 +1,6 @@
-#
-# NOTE: THIS DOCKERFILE IS GENERATED VIA "update.sh"
-#
-# PLEASE DO NOT EDIT IT DIRECTLY.
-#
-
 FROM buildpack-deps:buster
 
 ARG firefox_ver=83.0
-
-#FROM debian:buster
 
 # ensure local python is preferred over distribution python
 ENV PATH /usr/local/bin:$PATH
@@ -20,7 +12,6 @@ ENV LANG C.UTF-8
 # extra dependencies (over what buildpack-deps already includes)
 RUN apt-get update
 RUN apt-get upgrade -y
-# RUN apt-get install firefox-esr wget -y
 RUN apt-get install -y --no-install-recommends \
 		libbluetooth-dev \
 		tk-dev \
