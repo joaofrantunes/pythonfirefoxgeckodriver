@@ -14,7 +14,9 @@ ENV PATH /usr/local/bin:$PATH
 ENV LANG C.UTF-8
 
 # extra dependencies (over what buildpack-deps already includes)
-RUN apt-get update && apt-get install firefox -y && apt-get install -y --no-install-recommends \
+RUN apt-get update
+RUN apt install firefox
+RUN apt-get install -y --no-install-recommends \
 		libbluetooth-dev \
 		tk-dev \
 		uuid-dev \
